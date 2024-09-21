@@ -1,14 +1,8 @@
 import './App.css';
-import About from './components/About.js';
 import Navbar from './components/Navbar.js';
 import TextForm from './components/TextForm.js';
 import React,{useState} from 'react';
 import Alert from './components/Alert.js';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from 'react-router-dom';
 
 function App() {
   const[alert,setAlert] = useState(null);
@@ -41,12 +35,8 @@ function App() {
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
         <Alert alert={alert}/>
         <div className="container my-2">
-            <Routes>
-                <Route exact path="/about" element={<About />} />
-                <Route exact path="/" element={<TextForm mode={mode} showAlert={showAlert}/>} />
-            </Routes>
+          <TextForm mode={mode} showAlert={showAlert}/>
         </div>
-      </Router>
     </>
   );
 }
